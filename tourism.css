@@ -1,0 +1,132 @@
+body{
+    background-image: url(../images/texture.jpg);
+}
+
+/*dividing the screen into 5 columns - 4 for sightseeing, 1 for accommodation and transport*/
+#container {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: auto 1fr;
+    padding: 0 60px;
+    column-gap: 60px;
+    color: white;
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+/*2 columns for more readability*/
+#sightseeing {
+    column-count: 2;
+    column-gap: 20px;
+    background-color: #912727;
+    padding: 15px;
+}
+
+#turda {
+    column-count: 2;
+    column-gap: 20px;
+    background-color: maroon;
+    padding: 15px;
+    border-top: 2px solid white;
+}
+
+#accomm, #transport {
+    padding: 15px;
+    background-color: maroon;
+    height: fit-content;
+    text-align: right;
+}
+
+#transport{
+    margin-top: 50px;
+}
+
+#accomm h2, #transport h2{
+    text-align: center;
+}
+
+.sightcaption {
+    margin: 25px 5px 10px;
+  }
+
+section h2{
+    column-span: all; /* Make the h2 span across all columns */
+    width: 100%;
+    height: 40px;
+}
+
+p:first-child{
+    margin-top: 0;
+}
+
+p {
+    margin-top: 10px; 
+}
+
+section h3{
+    margin: 10px 0px 20px;
+
+}
+
+/*the not-so-important parts of the header 3*/
+h3 .neimp{
+    font-weight: lighter;
+}
+
+img{
+    width: 100%;
+    margin: 10px 0px 2px;
+}
+
+@media screen and (max-width: 1200px) {
+
+    #container {
+        grid-template-columns: 1fr; /* a single column for mobile view */
+        grid-template-rows: auto;
+        padding: 0 0px;
+    }
+
+    /*rearranging the order, since in the html accomodation and transport came between sightseeing and turda,
+    because that's how our grid was organized then and we wanted accommodation and transport on the side;
+    for mobile view, this would be disruptive; we place them at the end*/
+
+    #sightseeing {
+        grid-column: 1; /* Place Sightseeing in the first column */
+        grid-row: 1; /* Place Sightseeing in the first row */
+    }
+
+    #turda {
+        grid-column: 1; /* Place Turda in the first column */
+        grid-row: 2; /* Place Turda in the second row */
+        background-color: #912727;
+    }
+
+    #accomm {
+        grid-column: 1; /* Place Accommodation in the first column */
+        grid-row: 3; /* Place Accommodation in the third row */
+    }
+
+    #transport {
+        grid-column: 1; /* Place Transport in the first column */
+        grid-row: 4; /* Place Transport in the fourth row */
+    }
+
+    #accomm, #transport {
+        text-align: justify;
+        margin-top: 20px;
+    }
+
+    #transport {
+        margin-top: 20px;
+    }
+
+    #accomm h2, #transport h2 {
+        text-align: left;
+    }
+
+    #sightseeing, #turda {
+        column-count: 1;   /* a single column for mobile view */
+    }
+
+}
+

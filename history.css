@@ -1,0 +1,61 @@
+body{
+    background-image: url("../images/2.2.png");
+ }
+
+ /*splitting the container into 5 columns, 4 for the history part and one for one aside*/
+ #container{
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    padding: 0 60px;
+    column-gap: 60px;
+    color: white;
+    text-align: justify;
+    margin-bottom: 20px;
+ }
+ #history{
+    column-count: 2;
+    column-gap: 20px;
+    background-color: #912727;
+    padding: 15px;
+ }
+
+ aside {
+    padding: 15px;
+    background-color: maroon; 
+    height: fit-content;
+  }
+
+  p:not(:first-child){
+    margin-top: 10px; 
+  }
+
+  p:first-child{
+   margin-top: 0;
+  }
+
+aside p, ul{
+   text-align: left;
+   margin-left: 10px;
+}
+
+@media screen and (max-width: 1200px) {
+
+   #container {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      padding: 0px 0px;
+   }
+
+   #history{
+      column-count: 1;
+   }
+
+   aside{
+      display: none;
+   }
+
+   body:not(header):not(footer) {
+      top: 90px;
+    }
+
+}

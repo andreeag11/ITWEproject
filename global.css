@@ -1,0 +1,357 @@
+/*
+   Resetting default margin and padding for all elements 
+   and ensuring box-sizing follows the border-box model.
+
+   Reasoning: 
+   This global rule normalizes the styling across different browsers 
+   by removing default spacing and ensuring consistent box-sizing. 
+   This helps avoid unexpected layout issues and ensures more 
+   predictable and uniform styling throughout the document.
+*/
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+/*the header, which is fixed, occupies some space and would cover the following context, 
+so i chose this solution to move the rest of the body down and make space for it while keeping a clean look*/
+body:not(header) {
+  position: relative;
+  top: 45px;
+}
+
+body{
+  /*styling for the background image which will be picked in each css file for each page*/
+   background-size: cover; 
+   background-position: center; 
+   background-repeat: no-repeat; 
+}
+
+header, h1, h2, h3, h4 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+p, li, aside, button, #about {
+  font-family: Avenir, 'Avenir Light', Georgia, serif;
+  font-size: 19px;
+}
+
+/*fixed header to make navigation easier*/
+header {
+   display: flex;
+   align-items: center; 
+   background-color: #800000; 
+   color: white; 
+   padding: 10px 15px;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   max-height: 50px;
+   z-index: 1000;
+   font-size: 18px;
+}
+
+#left-header {
+   flex: 1;
+}
+
+#center-header {
+   flex: 1;
+   text-align: center;
+}
+
+#right-header {
+   flex: 1;
+   text-align: right;
+}
+
+ h1 {
+    color: maroon;
+    padding: 4px;
+    margin: 15px;
+    text-align: center;
+    display: block;
+   }
+ 
+   /*menu button styling*/
+   .dropdown button{
+    background-color: rgba(128, 0, 0, 1);
+    color: aliceblue;
+    font-size: inherit;
+    font: inherit;
+    padding: 5px;
+    cursor: pointer;
+    border: none;
+ }
+ 
+  .dropdown a{
+     display: block;
+     text-decoration: none;
+     color: aliceblue;
+     padding: 10px 15px;
+  }
+ 
+/*hide the dropdown options by default*/
+  .dropdown .content {
+    display: none;
+    position: absolute;
+    background-color: #912727;
+    box-shadow: 2px 2px 4px black;
+    min-width: 230px;
+    font-size: 16px;
+ }
+ 
+ /*styling the appearance for when interacting with the contents and button with the dropdown;
+ the dropdown options will become visible on hover*/
+  .dropdown:hover .content{
+     display: block;
+  }
+ 
+  .dropdown:hover button,
+  .dropdown:active button{
+     background-color: #912727;
+     box-shadow: 1px 0px 3px black;
+     border: 2px solid #912727;
+   }
+ 
+  .dropdown a:hover{
+     background-color: rgba(0, 0, 0, 0.409);
+  }
+ 
+  .dropdown {
+     display: inline-block;
+     position: relative;
+     z-index: 2; /* or adjust as needed */
+  }
+
+ .footer {
+   display: flex;
+   flex-flow: row wrap;
+   padding: 12px 30px 10px 30px;
+   color: #2f2f2f;
+   background-color: #fff;  
+  }
+ 
+  /*the contents of the footer will each occupy equal space*/
+ .footer > * {
+   flex: 1 100%;
+ }
+ 
+ .footer__addr {
+  display: flex;
+   margin-right: 1.25em;
+   align-items: center;
+ }
+ 
+ .footer__logo {
+   max-width: 130px;
+ }
+ 
+ .footer__addr h2 {
+   margin-top: 1.2em;
+   font-size: 15px;
+   font-weight: 400;
+   margin-right: 1em; /* Add right margin to separate the logo and address */
+   margin-left: 20px;
+ }
+ 
+ .nav__title {
+   font-weight: 400;
+   font-size: 18px;
+ }
+
+ .footer address {
+   margin-left: 20px;
+   font-style: normal;
+   color: #999;
+ }
+ 
+ .footer__btn {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 36px;
+   max-width: max-content;
+   background-color: rgb(225, 225, 225);
+   border-radius: 100px;
+   color: #2f2f2f;
+   line-height: 0;
+   margin: 0.6em 0;
+   font-size: 1rem;
+   padding: 0 1.3em;
+ }
+ 
+ .footer ul {
+   list-style: none;
+   padding-left: 0;
+ }
+ 
+ .footer li {
+   line-height: 35px;
+ }
+ 
+ .footer a {
+   text-decoration: none;
+ }
+ 
+ /*contact and browse columns*/
+ .footer__nav {
+   display: flex;
+ }
+ 
+ .footer__nav > * {
+   flex: 1 50%;
+   margin-right: 1.25em;
+ }
+ 
+ .nav__ul * {
+   color: #999;
+ }
+ 
+ .nav__ul--extra {
+   column-count: 2;
+   column-gap: 1.25em;
+ }
+
+ .footer__content {
+   flex: 1 0px; /* Occupy remaining space */
+   display: flex;
+   flex-direction: row;
+ }
+ 
+ .credits {
+   color: #999;
+   position: relative;
+   bottom: 5px;
+ }
+
+.footer__addr {
+  flex: 1 0px;
+}
+
+/*styling for list items*/
+li {
+ margin-left: 20px;
+}
+ul > li:not(li > ul > li) {
+  margin-top: 10px;
+}
+
+/*different colors for links depending on status*/
+
+a:not(.header a):not(.footer a):link {
+ color: #EFF1FA;
+ text-decoration: underline;
+}
+
+a:not(.header a):not(.footer a):visited {
+ color: #F2EFCF;
+}
+
+a:not(.header a):not(.footer a):hover {
+ color: #82A7A6;
+}
+
+a:not(.header a):not(.footer a):active {
+ color: #59C9A5;
+}
+
+/*paragraph spacing*/
+p{
+ margin-top: 10px;
+}
+
+img {
+ max-width: 100%;
+ object-fit: contain;
+}
+
+.imgcaption p{
+  font-family: inherit;
+  font-size: 14px;
+  color: gray;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 0px;
+}
+
+/*responsive design*/
+
+@media screen and (min-width: 600px) and (max-width: 1200px) {
+  img {
+    max-width: 50%; /*otherwise some images might have bad resolutions for these widths*/
+    object-fit: contain;
+    float: right;
+    padding: 15px;
+   }
+}
+
+@media screen and (max-width: 600px) {
+
+  body:not(header):not(footer) {
+    display: flex;
+    flex-direction: column;
+    background-image: none;
+    background-color: #DDDDD0;
+    position: relative;
+    top: 78px; /*the header becomes taller on smaller screens, so we adjust this*/
+  }
+
+  header{
+    position: fixed;
+    max-height: fit-content;
+    margin: 0;
+  }
+
+  .container {
+    width: 100%; /* Full width for smaller screens */
+  }
+
+  .header, .footer {
+    padding: 8px; /* Reduce padding for header and footer on smaller screens */
+  }
+
+  .main-content {
+    padding: 8px; /* Reduce padding for main content on smaller screens */
+  }
+
+  .footer__nav > * {
+    flex: 1;
+  }
+  
+  .footer__addr {
+    flex: 1 0px;
+  }
+  
+  .footer__nav {
+    flex: 1 0px;
+  }
+
+  .footer__btn{
+    white-space: nowrap; 
+  }
+
+  .footer__logo{
+    display: none;
+  }
+
+  .footer__addr, .footer__content{
+    position: relative;
+    top: -10px;
+  }
+
+  .footer{
+    height: fit-content;
+    background-color: white;
+    max-height: none;
+    flex-direction: column;
+    padding-top: 0px;
+  }
+  
+  .nav__ul--extra {
+    column-count: 1; /* a single column for the footer browse menu in smaller screens */
+  }
+}

@@ -1,0 +1,105 @@
+body{
+    background-image: url("../images/2.2.png");
+    background-color: white;
+}
+
+/*splitting the container into two equal columns*/
+#container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    padding: 0 60px;
+    column-gap: 60px;
+    color: white;
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+/*equal sections*/
+#universities, #student_life{
+    width: 100%;
+    height: fit-content;
+}
+
+.unilogo {
+    background-color: white;
+    margin: 10px 0px;
+}
+
+section{
+    background-color: #912727;
+    padding: 10px;
+    color: white;
+    text-align: justify; 
+    margin-top: 20px;
+}
+
+section h3{
+    margin: 10px 0px 20px;
+}
+
+#ubblogo, #utcnlogo {
+    padding: 15px;
+}
+
+#musiclogo{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/*distancing each subsection*/
+.unicaption, .studcaption{
+    margin: 25px 5px 50px;
+}
+
+.unicaption:last-child, .studcaption:last-child{
+    margin: 25px 5px 15px;
+}
+
+h2{
+    margin: 0 5px 0; /*align with the captions*/
+}
+
+#ed_introd{
+    width: 950px;
+    text-align: center;
+    margin: 10px auto; 
+    color: #800000;
+    font-weight: bold;
+}
+
+.title{
+    font-weight: bold;
+}
+
+h1{
+    color: maroon;
+}
+
+@media screen and (max-width: 1200px) {
+    body{
+        background-image: url(../images/8.jpg);
+        background-color: white;
+    }
+
+    #container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        padding: 0px 0px;
+    }
+
+    #student_life{
+        background-color: maroon;
+    }
+
+    #ed_introd{
+        max-width: 90%;
+    }
+
+    .footer{
+        margin-top: 0;
+    }
+}
+
+
+
